@@ -1,0 +1,281 @@
+/* RESET DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    
+    /* BACKGROUND DENGAN GAMBAR SAWAH DAN OVERLAY */
+    background-image: url("https://plus.unsplash.com/premium_photo-1726313836390-8b1e86742c98?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2F3YWh8ZW58MHx8MHx8fDA%3D");
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center center;
+    position: relative;
+}
+
+/* OVERLAY GELAP untuk kontras teks yang jelas */
+body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Lapisan hitam semi-transparan (70% gelap) */
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: -2; 
+}
+
+/* Pastikan main berada di atas overlay */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+/* 💎 EFEK LIQUID GLASS (GLASMORPHISM) + ANIMASI CAIR 💎 */
+.liquid-glass-card {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; 
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efek Hover Liquid Glass */
+.liquid-glass-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45); 
+}
+
+/* Efek Cahaya Bergerak (Liquid Flow) */
+.liquid-glass-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    animation: liquidFlow 15s linear infinite; 
+    z-index: -1;
+}
+
+@keyframes liquidFlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* HEADER DAN NAVIGASI */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #a0d8ff; 
+    text-shadow: 0 0 5px rgba(160, 216, 255, 0.8);
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(160, 216, 255, 0.9); 
+}
+
+/* Tombol CTA dengan Neon Glow */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #a0d8ff, #7fc8ff);
+    color: #1f1c2c;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 15px rgba(127, 200, 255, 0.6); 
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(127, 200, 255, 1), 0 0 40px rgba(160, 216, 255, 0.8);
+}
+
+/* SEKSI KONTEN UMUM */
+.content-section {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+/* Gaya untuk Dewan Tetua (C) */
+/* .dewan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+} */
+
+/* Gaya untuk Dewan Tetua */
+.dewan-grid {
+    display: flex;
+    gap: 30px; 
+    margin-top: 40px;
+    padding-bottom: 20px; 
+    
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    overflow-y: hidden;
+    
+    /* 🛠️ KODE PENTING: MENGHILANGKAN SCROLLBAR SECARA VISUAL 🛠️ */
+    
+    /* 1. Untuk Firefox */
+    scrollbar-width: none; 
+
+    /* 2. Untuk Internet Explorer dan Edge */
+    -ms-overflow-style: none; 
+}
+
+/* 3. Untuk Chrome, Safari, dan Opera (Webkit Browsers) */
+.dewan-grid::-webkit-scrollbar {
+    display: none;
+    width: 0; /* Pastikan lebarnya nol */
+    height: 0; /* Pastikan tingginya nol untuk scroll horizontal */
+}
+
+
+/* KODE KRUSIAL: Memastikan lebar kartu tetap */
+.member-card {
+    /* Lebar minimal, harus sama dengan yang diperkirakan di JS */
+    min-width: 300px; 
+    flex-shrink: 0; /* Mencegah kartu mengecil di bawah 300px */
+    text-align: center;
+}
+
+.member-card {
+    text-align: center;
+}
+
+.member-card img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 15%; 
+    margin-bottom: 15px;
+    border: 3px solid rgba(160, 216, 255, 0.5); 
+}
+
+
+
+.member-card h3 {
+    color: #a0d8ff;
+    margin-bottom: 5px;
+}
+
+.member-card .title {
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+
+/* 📐 RESPONSIVITAS MOBILE 📐 */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        background: rgba(31, 28, 44, 0.95);
+        padding: 10px 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav a {
+        margin: 10px 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .liquid-glass-card {
+        padding: 20px;
+    }
+}
